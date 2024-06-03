@@ -5,7 +5,10 @@ const { Category, Product } = require('../../models');
 
 router.get('/', (req, res) => {
   Category.findAll({
-    attributes: ['id', 'category_name']
+    attributes: ['id', 'category_name'],
+    include: [{
+      model: Product
+    }]
   })
     .then((result) => {
       return res.json(result)

@@ -5,7 +5,10 @@ const { Tag, Product, ProductTag } = require('../../models');
 
 router.get('/', (req, res) => {
   Tag.findAll({
-    attributes: ['id', "tag_name"]
+    attributes: ['id', "tag_name"],
+    include: [{
+      model: Product,
+    }]
   })
     .then((result) => {
       return res.json(result)
@@ -16,7 +19,6 @@ router.get('/', (req, res) => {
         message: "Cannot fetch records!"
       })
     })
-  // be sure to include its associated Product data
 });
 
 router.get('/:id', (req, res) => {
