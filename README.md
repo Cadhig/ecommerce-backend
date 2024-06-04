@@ -1,4 +1,4 @@
-# E-commerce Back End Starter Code
+# E-commerce Back End
 
 A simple express.js backend utilizing databases through sequelize!
 
